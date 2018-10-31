@@ -1,0 +1,846 @@
+//COLORES
+$color-nav-hover: #BDA080;
+$color-nav-letter: #FFF;
+$color-bg-contacto: #c8a27e;
+$color-contacto: #211915;
+$color-hover-contacto: #FFF;
+
+$color-noticia: #962328; /* Color utilizado en las noticias */
+
+$color-footer: #C8A27E; /* Color utilizado en el footer*/
+
+
+
+/*=============================================
+ESTILOS GLOBALES
+=============================================*/
+body{
+	margin:0;
+	padding:0;
+	list-style: none;
+	text-decoration: none;
+	font-family: sans-serif;
+	box-sizing: border-box;
+	color: #fff;
+}
+
+.contenedor{
+	position:relative;
+	width:100%;
+}
+.container{
+	z-index: 999;
+	margin: 0 9%;
+	width: 82%;
+	height: auto;
+}
+
+.fila{
+	position:relative;
+	margin:auto;
+	width:100%;
+	height: auto;
+	clear:both;
+	display:table;
+}
+/* Alinear texto al centro */
+.text-center{
+	text-align: center;
+}
+/* Alinear texto a la derecha */
+.text-right{
+	text-align: right;
+}
+/* Alinear texto al izquierda */
+.text-left{
+	text-align: left;
+}
+.btn{
+	text-decoration: none;
+	border: 2px solid;
+	border-radius: 5px;
+	padding: 5px 13px;
+	margin-left: 0;
+	cursor: pointer;
+}
+.btn:hover{
+	color: #fff;
+}
+/* flotamiento al derecha */
+.float-right{
+	float: right;
+}
+/* flotamiento al izquierda */
+.float-left{
+	float: left;
+}
+
+
+/*=============================================
+	SECCION 1
+=============================================*/
+/* caracteristicas de la imagen de portada con el titulo BLOG*/
+.portada{
+	background-image: url("../img/img-principal-ib.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	min-height: 350px;
+	color: #fff;
+	z-index: -1;
+	h1{
+		font-family: 'Kaushan Script', cursive;
+		font-weight: 500;
+		font-size: 1.875rem;
+		color: #fff;
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 200px;
+		text-align: center;
+		margin-bottom: .5rem;
+	}
+
+}
+/* caracteristicas de la barra de contacto */
+header{
+	background-color: $color-bg-contacto;
+	.contacto{
+		text-align: end;
+		a{
+			text-decoration: none;
+			color: $color-contacto;	
+			&:hover{
+				color: $color-hover-contacto;
+			}
+		}
+	}
+}
+
+/* Carasteristicas del navbar de sus items en general */
+.navbar{
+	nav {
+		
+		text-align: center;
+		color: $color-nav-letter;
+		border-bottom: 1.5px solid $color-nav-letter;
+		z-index: 999;
+		div a img{
+			width:  auto;
+			height: 75px;
+		}
+		div ul li{
+			padding:  10px;
+			text-align: right;
+			float: right;
+			list-style: none;
+			a{
+				display: block;
+				color:	$color-nav-letter;
+				line-height:  43px;
+				text-decoration: none;
+				text-align: right;
+				transition: all .5s ease;
+				&:hover{
+					color: $color-nav-hover;
+				}	
+			}	
+		}
+	} 
+}
+/* Ocultar en modo no responsive el icono de la Burger */
+#menu-toggle {
+	display: none;
+} 
+.label-toggle {
+	display: none;
+}
+/* caracteristicas de la barra debajo de la portada */
+.barra{
+	background-color: #D1D2D3;
+	margin-top: 232px;
+	margin-bottom: 0;
+	min-height: 48px;
+	padding: 0 !important;
+	div ul{
+		margin: 0;
+		li{
+			float: left;
+			list-style: none;
+			display: flex;
+			
+			&:nth-of-type(1){
+				a::before{
+					/* 
+					Para escoger solo el primer item en este 
+					caso es la etiqueta a, solo tomamos el primero
+					y aplicamos before y after para agregar contenido		
+				    Before: agregamos el cuadro que es una imagen
+			 		*/
+					content: url(../img/list-square.png);
+					position: absolute;
+					left: -5px;
+				} 
+				a::after{
+					/*
+					Para escoger solo el primer item en este 
+					caso es la etiqueta a, solo tomamos el primero
+					y aplicamos before y after para agregar contenido
+					After: Agregamos la barra
+			 		*/
+					content: "|";
+					border-right: none;
+					padding-left: 12px;
+					opacity: 0.6;
+				}
+			}
+			
+			a{
+				/* Estableciendo caracteristicas de la etiqueta a */
+				text-decoration: none;
+				color: #7F7F7F;
+				font-family: "Work Sans";
+				font-size: 0.875rem;
+				padding: 15px;
+				position: relative;	
+			}
+		}
+	}
+}
+/*=============================================
+	SECCION 2
+=============================================*/
+/* Estableciendo propiedades de la seccion2 */
+#seccion2{
+	background-color: #fff;
+	padding: 80px 0;
+}
+/* Estableciendo propiedad de toda la seccion2 de noticias */
+#seccion2 .main{
+	padding-left: 3rem !important;
+	padding-right: 3rem !important;
+	&-ppal-noticia article{
+		/* Propiedades del articulo como altura, sombra, margin y padding */
+		margin-bottom: 80px;
+		height: 250px;
+		padding: 34px 0 34px 28px;
+		box-shadow: 3px 3px 30px 1px #888888;
+		.poster{
+			/* Haciendo el div relative para poner texto encima de la img */
+			position: relative;
+			display: inline-block;
+			img{
+				/* Propiedades de la imagen */
+				height: 250px;
+				width: 100%;
+			}
+			@at-root .fecha{
+				/* Propiedad global de fecha
+					Ya que se utilizara nuevamente en el Article del aside
+					de position absolute para poder 
+					ponerlo en la parte superior derecha
+				 */
+				width: 80px;
+				height: 80px;
+				background: #962328;
+				border-radius: 50px 0 50px 50px;
+				position: absolute;
+				top: 10px;
+				right: 0;
+				color: #fff;
+				p{
+					text-align: center;
+					line-height: 1;
+					font-weight: 700;
+					font-size: 1.25rem;
+					& span{
+						display: block;
+						font-weight: 100;
+						font-size: 1rem;
+					}
+					margin-bottom: .5rem;
+				}
+			}
+		}
+		.texto-articulo{
+			/* Estableciendo propiedad de padding del texto */
+			padding: 24px 40px 24px 40px;
+			@at-root .title-articulo{
+				/*Estableciendo propiedades globales del title del artuculo
+				  Ya que se utilizara en el Article del Aside
+				*/
+				color: #212529;
+				font-size: 1.3rem;
+				font-weight: 600;
+				margin-top: 1rem;
+			}
+			@at-root .contenido-articulo{
+				/*Estableciendo propiedades globales del contenido del artuculo
+				  Ya que se utilizara en el Article del Aside
+				*/
+				color: #212529;
+				font-weight: 300;
+				margin-top: 0;
+				margin-bottom: 1rem;
+			}
+			@at-root .ver-mas,& a{
+				/*
+				Propiedades de los botones del articulo
+				al igual que el boton de ver mas
+				*/
+				color: $color-noticia;
+				border-color: $color-noticia;
+				&:hover{
+					/* Hover de los botones */
+					color: #fff;
+					background-color: $color-noticia;
+				}
+			}
+
+		}
+	}
+	&-ltral-noticia{
+		aside{
+			/*Propiedades del Aside
+			*/
+			margin-right: 1.5rem;
+			margin-left: 1.5rem;
+			background-color: #f0f0f0;
+			line-height: 1.5;
+			color: #212529;
+			.redes{
+				/*Propiedades de las redes sociales 
+				*/
+				padding-bottom: 1.5rem;
+				padding-top: 1.5rem;
+				margin: 0 40px 0 40px;
+				border-bottom: 1px solid #BDA080;
+				& h3{
+					font-weight: 500;
+					font-size: 1.2rem;
+				}
+				a{
+					color: $color-noticia;
+					font-size: 1.5rem;
+					text-decoration: none;
+					padding: 0 5px 0 5px;
+				}
+			}
+			.last-noticias{
+				/*Estableciendo propiedades del h3 
+				*/
+				margin: 48px 0 48px 0;
+				background-color: $color-noticia;
+				color: #fff;
+				font-weight: 500;
+				font-size: 1.2rem;
+			}
+			.article-aside{
+				/*
+					Propiedades del Article dentro del Aside
+				*/
+				margin: 0 40px 0 40px;
+				padding: 14px 20px 0 40px;
+				article{
+					/*
+						Propiedades del del Article dentro del Aside
+					*/
+					padding: 10px 0 24px 0;
+					position: relative;
+					display: inline-block;
+					img{
+						/* Propiedades de imagen del Article dentro del Aside  */
+						height: 160px;
+						width: 100%;
+					}
+					a{
+						text-decoration: none;
+					}
+					hr{
+						/*
+						Propiedades de la barra del Article dentro del Aside
+						*/
+						margin: 0 0 5px 0;
+						width: 50px;
+						border-color: #BDA080;
+					}
+				}
+			}
+
+		}
+	}
+	
+}
+
+
+/*=============================================
+	FOOTER
+=============================================*/
+/*Caracteristicas general de Footer
+Estableciendo un BG
+*/
+footer{
+	background-image: url("../img/footer.jpg");
+	background-size: cover;
+	padding-top: 50px;
+	/*
+	caracteristicas del titulo de Contacto del Footer
+	*/
+	.contacto{
+		position: relative;
+		margin-left: auto;
+		margin-right: auto;
+		&::before{
+			/*Linea derecha en el titulo de Contacto del Footer*/
+			content: '';
+			position: absolute;
+			height: 25px;
+			width: 39%;
+			top: 15px;
+			border-bottom: 2px solid $color-footer;
+			right: -24px;
+		}
+		&::after{
+			/*Linea izquierda en el titulo de Contacto del Footer*/
+			content: '';
+			position: absolute;
+			height: 25px;
+			width: 39%;
+			top: 15px;
+			border-bottom: 2px solid $color-footer;
+			left: -24px;
+		}	
+	}
+	
+	form{
+		/* Estableciendo caracteristicas del form
+		junto a los input y el textarea
+		*/
+		margin: 30px 10px;
+		input,textarea{
+			width:94%;
+			padding:10px;
+			margin:10px 0;
+			font-size: 1rem;
+			color: #4f4a63;
+			font-family: 'Arial', bold;
+		}
+	}
+
+	
+	.boton{
+		/* Caracteisticas del Boton del form del Footer */
+		margin: 0 10px;
+		a{
+			text-decoration: none;
+			color: #fff;
+			border: 2px solid $color-footer;
+			border-radius: 5px;
+			padding: 5px 25px;
+			margin-left: 0;
+			font-size: 1.2rem;
+			&:hover{
+				background-color: $color-footer;
+			}
+		}
+	}
+	
+	.barra-footer{
+		&::before{
+			/* Linea central del footer */
+			content: '';
+			height: 100px;
+			position: relative;
+			top: 55px;
+			margin: 40px 50%;
+			border: 1px solid $color-footer;
+			font-size: 9rem;
+		}
+	}
+
+	
+	.text-footer{
+		/* Caracteristicas del texto footer 
+		de la lista desordenada y las imagenes
+		dentro de ellas
+		*/
+		text-align: left;
+		margin: 70px 0;
+		ul{
+			padding-left: 0;
+			li{
+				float: left;
+				list-style: none;
+				display: flex;
+				margin: 10px 0;
+				clear: both;
+				img{
+					width: 18px;
+					height: auto;
+					color: #fff;
+					padding: 0 5px;
+				}
+				a{
+					color: #fff;
+					text-decoration: none;
+				}
+			}
+		}
+	}
+	
+	i{
+	/*
+	Caracteristicas de los iconos de redes sociales en el Footer
+	*/
+		color: #fff;
+		padding: 0 10px;
+		margin: 20px 0;
+	}
+	
+	.barra-fondo{
+		/* caracteristicas de la barra casi al final del Footer */
+		background-color: $color-noticia;
+		height: 112px;
+	}
+	.end{
+		/* Caracteristicas de la barra final del Footer */
+		background-color: #000;
+		a{
+			text-decoration: none;
+			.muva{
+				/* modificacion de imagen de MUVA */
+				height: 17px;
+				width: auto;
+			}
+			.ico-desarrollo{
+				/* modificacion de imagen de ICO-DESARROLLO */
+				height: 21px;
+				width: auto;
+			}
+		}
+	}
+}
+
+/*=============================================
+	THE MODAL
+=============================================*/
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    padding-top: 50px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 25%;
+    max-width: 700px;
+}
+
+/* Caption of Modal Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #fff !important;
+    padding: 10px 0;
+    height: 150px;
+    .title-articulo{
+    	color: $color-noticia !important;
+    }
+    .contenido-articulo{
+		color: #fff !important;
+    }
+
+    @at-root .modal-content, &{
+    	-webkit-animation-name: zoom;
+    	-webkit-animation-duration: 0.6s;
+    	animation-name: zoom;
+    	animation-duration: 0.6s;
+    }
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+
+
+/*=============================================
+PANTALLA DE ESCRITORIO GRANDE - LARGE (lg) - revisamos en portatil o pc
+=============================================*/
+
+@media(min-width:1200px){
+	.col-lg-12{width:100%;}
+	.col-lg-11{width:91.66666667%;}
+	.col-lg-10{width:83.33333333%;}
+	.col-lg-9{width:75%;}
+	.col-lg-8{width:66.66666667%;}
+	.col-lg-7{width:58.33333333%;}
+	.col-lg-6{width:50%;}
+	.col-lg-5{width:41.66666667%;}
+	.col-lg-4{width: 33.33333333%;}
+	.col-lg-3{width: 25%;}
+	.col-lg-2 {width: 16.66666667%;}
+	.col-lg-1 {width: 8.33333333%;}
+	.col-lg-0 {display:none; visibility: hidden;}
+
+}
+
+/*=============================================
+PANTALLA DE ESCRITORIO MEDIANO - MEDIUM (md) - revisamos en tablet horizontal 1024px
+=============================================*/
+
+@media(max-width:1199px) and (min-width:992px){
+	.col-md-12{width:100%;}
+	.col-md-11{width:91.66666667%;}
+	.col-md-10{width:83.33333333%;}
+	.col-md-9{width:75%;}
+	.col-md-8{width:66.66666667%;}
+	.col-md-7{width:58.33333333%;}
+	.col-md-6{width:50%;}
+	.col-md-5{width:41.66666667%;}
+	.col-md-4{width: 33.33333333%;}
+	.col-md-3{width: 25%;}
+	.col-md-2{width: 16.66666667%;}
+	.col-md-1{width: 8.33333333%;}
+	.col-md-0 {display:none; visibility: hidden;}
+}
+
+/*=============================================
+PANTALLA DE TABLET - SMALL (sm) - revisamos en tablet vertical 768px
+=============================================*/
+
+@media(max-width:991px) and (min-width:768px){
+	.col-sm-12{width:100%;}
+	.col-sm-11{width:91.66666667%;}
+	.col-sm-10{width:83.33333333%;}
+	.col-sm-9{width:75%;}
+	.col-sm-8{width:66.66666667%;}
+	.col-sm-7{width:58.33333333%;}
+	.col-sm-6{width:50%;}
+	.col-sm-5{width:41.66666667%;}
+	.col-sm-4{width: 33.33333333%;}
+	.col-sm-3{width: 25%;}
+	.col-sm-2{width: 16.66666667%;}
+	.col-sm-1{width: 8.33333333%;}
+	.col-sm-0 {display:none; visibility: hidden;}
+	
+	/*
+	Ajustar barra debajo de la img de portada
+	*/
+	.barra{
+		margin-top: 169px;
+	}
+	
+	/*
+	Ajustes responsive del footer
+	*/
+	footer{
+		.text-footer{
+			/* 
+			centrando el texto del footer
+			*/
+			text-align: center;
+			font-size: .9rem;
+			margin: 50px 25%;
+		}
+		.barra-footer{
+			/*Para que no aparezca la linea en el footer
+			*/
+			&::before{
+				border: 0;
+			}
+		}
+	}
+}
+
+
+/*=============================================
+PANTALLA DE PHONES - EXTRA SMALL (xs) - revisamos en movil horizontal 480px o vertical 320px
+=============================================*/
+
+@media(max-width:767px){
+	.col-xs-12{width:100%;}
+	.col-xs-11{width:91.66666667%;}
+	.col-xs-10{width:83.33333333%;}
+	.col-xs-9{width:75%;}
+	.col-xs-8{width:66.66666667%;}
+	.col-xs-7{width:58.33333333%;}
+	.col-xs-6{width:50%;}
+	.col-xs-5{width:41.66666667%;}
+	.col-xs-4{width: 33.33333333%;}
+	.col-xs-3{width: 25%;}
+	.col-xs-2{width: 16.66666667%;}
+	.col-xs-1{width: 8.33333333%;}
+	.col-xs-0 {display:none; visibility: hidden;}
+
+	/*
+	Ajustar barra debajo de la img de portada
+	*/
+	.barra{
+		margin-top: 169px;
+	}
+
+	/*
+		Estabeciendo configuracion del responsive del Article
+	*/
+	#seccion2 .main{
+		padding-right: 1rem;
+		padding-left: 1rem;
+		&-ppal-noticia article{
+			height: 500px;
+			padding: 34px 28px 34px 28px;
+			margin-bottom: 40px;
+			.texto-articulo{
+				padding: 10px 20px 10px 20px;
+				font-size: 0.8rem;
+				@at-root .title-articulo{
+					font-size: 1rem;
+				}
+				@at-root .contenido-articulo{
+					font-size: 0.8rem;
+				}
+			}
+		}
+		&-ltral-noticia aside .article-aside{
+			margin: 0 20px;
+			padding: 0 10px;
+		}
+	}
+	
+	/*
+	Ajustes responsive del footer
+	*/
+	footer{
+		.text-footer{
+			/* 
+			centrando el texto del footer
+			*/
+			text-align: center;
+			font-size: .7rem;
+			margin: 50px 25%;
+		}
+		.barra-footer{
+			/*Para que no aparezca la linea en el footer
+			*/
+			&::before{
+				border: 0;
+			}
+		}
+	}
+
+	/* CARACTERISTICAS RESPONSIVE DEL MENU */
+	/*
+		Escondiendo los items del UL cuando es responsive
+		para mostrarlo con icono de la burguer 
+	*/
+    nav div ul {
+      background: rgba(33, 37, 41,0.8);
+      display: block;
+      height: 0;
+      list-style-type: none;
+      opacity: 0;
+      text-align: center;
+      transition: all 1s ease;
+      width: 222px;
+      visibility: hidden;
+      position: absolute;
+	  right: 0;
+	  top: 88px;
+	  z-index: 1;
+    }
+    /* carasteristicas de los items del menu en responsive */
+    nav div ul li {
+      color: #fff;
+      display: contents;;
+      font-size: 1rem;
+      padding: 15px 0 !important;
+      & a:hover{
+      	background: rgba(255, 255, 255,0.4);
+      }
+      a{
+      	padding-right: 15px;
+      }
+    }
+    /* aparecer el menu con sus items */
+	#menu-toggle:checked ~ ul {
+      opacity: 1;
+      height: auto;
+      visibility: visible;
+    }
+    /* caracteristicas del menu */
+    .label-toggle {
+      background: linear-gradient(to bottom, #fff 0%, #fff 20%, transparent 20%, transparent 40%, #fff 40%, #fff 60%, transparent 60%, transparent 80%, #fff 80%, #fff 100%); //Gradient Hamburger
+      cursor: pointer;
+      display: block;
+      float: right;
+      height: 30px;
+      margin-top: 1em;
+      width: 30px;
+    }
+}
+/*Responsive del article para modificar su altura*/
+@media(max-width:500px){
+	#seccion2 .main{
+		padding-right: .5rem !important;
+		padding-left: .5rem !important;
+		&-ppal-noticia article{
+			height: 550px;
+		}
+	}
+
+}
+
+[class*="col-"]{
+	float:left;
+	padding: 10px 0px;	
+	display: block;
+	visibility: visible;
+}
